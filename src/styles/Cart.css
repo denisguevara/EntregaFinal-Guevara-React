@@ -1,0 +1,26 @@
+.centrarText {
+    display: flex;
+    align-items: center;
+    height: 86.5%;
+  }
+  
+  .contenedor-formulario{
+    width: 80%; 
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 6px;
+  }
+  
+  .contenedor-carrito-vacio{
+    width: 80%; 
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .total-boton{
+    display: flex;
+    justify-content: space-around;
+  }

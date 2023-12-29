@@ -1,0 +1,34 @@
+.items{
+    margin-left: 20px;
+  }
+  
+  .texto{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .container-elementos-navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .elemento-navbar{
+    margin: 6px;
+  }
+  
+  .estilos-elementos-navbar{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .estilos-navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1500;
+  }
+  
+  body {
+    margin-top: 80px;
+  }

@@ -1,52 +1,77 @@
-import React from 'react'
-import { Menu, MenuButton, Button, MenuList, MenuItem, Flex, Box, Spacer } from "@chakra-ui/react"
-import { ChevronDownIcon } from '@chakra-ui/icons'
-import CartWidget from './CartWidget'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom'
+import logo from '../assets/escudo-river.png'
 
+import CartWidget from './CartWidget'
+import '../styles/NavBar.css'
 
 const NavBar = () => {
   return (
-    <Flex>
-      <Box p='4'>
-        <Link to={"/"}>
-          <img src="../public/img/escudo-river.png" alt="escudo River Plate" width="70px" height="auto"/>
-        </Link>
-      </Box>
-      <Spacer />
-      <Box p='4'>
-        <Menu>
-          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-            Categories
-          </MenuButton>
-          <MenuList>
-            <MenuItem>
-              <Link to={`/category/${'cat1'}`}>
-                Category A
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={`/category/${'cat2'}`}>
-                Category B
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to={`/category/${'cat3'}`}>
-                Category C
-              </Link>
-            </MenuItem>
-          </MenuList>
-        </Menu>
-      </Box>
-      <Spacer />
+    <>
+      <Navbar expand="lg" className="bg-body-tertiary estilos-navbar">
+        <Container>
+          <Navbar.Brand>
+            <Link to={'/'} className='estilos-elementos-navbar'>
+              <img
+                alt=""
+                src={logo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />{' '}
+              Level Up Games
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
 
-      <Box>
-        <Link to={"/cart"}>
-          <CartWidget />
-        </Link>
-      </Box>
-    </Flex>
+              <div className='container-elementos-navbar'>
+
+                {/* <div className='elemento-navbar'>
+                  <Link className='estilos-elementos-navbar' to={'/'}>
+                    Home
+                  </Link>
+                </div> */}
+
+              </div>
+
+              <NavDropdown title="Categorías" id="basic-nav-dropdown">
+
+                <NavDropdown.Item className='items' as='div'>
+                  <Link to="/categoria/consolas" className='texto' >Consolas</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item className='items' as='div'>
+                  <Link to="/categoria/computadoras" className='texto'>Computadoras</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Item className='items' as='div'>
+                  <Link to="/categoria/accesorios" className='texto'>Accesorios</Link>
+                </NavDropdown.Item>
+
+                <NavDropdown.Divider />
+
+                <NavDropdown.Item className='items' as='div'>
+                  <Link to="/" className='texto'>Home</Link>
+                </NavDropdown.Item>
+
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+          <Link to={'/cart'}>
+            <CartWidget />
+          </Link>
+        </Container>
+      </Navbar>
+
+    </>
   )
 }
+
+
 
 export default NavBar

@@ -1,0 +1,8 @@
+.container-Item {
+    margin: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .container-Item:hover{
+    transform: scale(1.05)
+  }
