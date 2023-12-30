@@ -28,10 +28,10 @@ const Cart = () => {
 
     if (formData.email !== formData.confirmemail) {
       Swal.fire({
-        title: '¡Error!',
+        title: 'Ha ocurrido un Eror!',
         text: 'Los campos de email no coinciden',
         icon: 'error',
-        confirmButtonColor: '#0d6efd',
+        confirmButtonColor: '#338aff',
       });
     } else {
       const pedido = {
@@ -72,15 +72,13 @@ const Cart = () => {
             <Card style={{ marginBottom: '15px' }}>
               <Card.Body>
                 <Row>
-                  {/* Imagen a la izquierda */}
+                  
                   <Col md={3}>
                     <Card.Img src={`../src/assets/${p.imagen}.jpg`} style={{ width: '100%', height: 'auto' }} />
                   </Col>
 
-                  {/* Contenido a la derecha */}
                   <Col md={9}>
                     <Row style={{ height: '100%' }}>
-                      {/* Columna 1 */}
                       <Col>
                         <Card.Title>Producto</Card.Title>
                         <div className='centrarText'>
@@ -88,7 +86,6 @@ const Cart = () => {
                         </div>
                       </Col>
 
-                      {/* Columna 2 */}
                       <Col>
                         <Card.Title>Precio</Card.Title>
                         <div className='centrarText'>
@@ -96,7 +93,6 @@ const Cart = () => {
                         </div>
                       </Col>
 
-                      {/* Columna 3 */}
                       <Col>
                         <Card.Title>Cantidad</Card.Title>
                         <div className='centrarText'>
@@ -104,7 +100,6 @@ const Cart = () => {
                         </div>
                       </Col>
 
-                      {/* Columna 4 */}
                       <Col>
                         <Card.Title>Total</Card.Title>
                         <div className='centrarText'>
@@ -124,8 +119,8 @@ const Cart = () => {
 
       {
         cart.length > 0 ?
-          <div className='contenedor-formulario' style={{ width: '80%', margin: '0 auto', border: '1px solid black', padding: '15px' }}>
-            <div className='total-boton mb-3'>
+          <div className='contenedor-form' style={{ width: '80%', margin: '0 auto', border: '1px solid black', padding: '15px' }}>
+            <div className='total mb-2'>
               <h2>Total de la orden: {precioTotal()} USD</h2>
               <Button variant="danger" onClick={vaciarCarrito}>Vaciar carrito</Button>
             </div>

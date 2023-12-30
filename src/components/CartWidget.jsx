@@ -1,19 +1,25 @@
-import { Flex, Box, Spacer } from '@chakra-ui/react'
-import React from 'react'
-import { Badge } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { FaCartShopping } from 'react-icons/fa6';
+import '../styles/CartWidget.css'
 
-const CartWidget = () => {
+import { CartContext } from '../context/CartContext';
+
+const cartWidget = () => {
+
+  const { cart, setCart } = useContext(CartContext)
+
+  const cantidadCarrito = () => {
+    return cart.reduce((acc, producto) => acc + producto.count, 0)
+  }
+
   return (
-    <Flex>
-      <Box p='4'>
-        <img src="../public/img/carrito.png" alt="imagen carrito" width='50px' height='50px' />
-      </Box>
-      <Spacer />
-      <Box p='4'>
-        <Badge colorScheme='purple'>5</Badge>
-      </Box>
-    </Flex>
+    <div className='carrito'>
+      <span className='icono-carrito'>
+        <i><FaCartShopping /></i>
+      </span>
+      <span className="texto-carrito">{cantidadCarrito()}</span>
+    </div>
   )
 }
 
-export default CartWidget
+export default cartWidget

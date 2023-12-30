@@ -1,34 +1,24 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import Button from 'react-bootstrap/Button';
+import Badge from 'react-bootstrap/Badge';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import '../styles/ItemCount.css'
 
-import { ButtonGroup, Button, IconButton } from '@chakra-ui/react'
-import { AddIcon, MinusIcon } from '@chakra-ui/icons'
-
-const ItemCount = () => {
-
-  const [counter, setCounter] = useState(0)
-
-  const increment = () => {
-    if (counter < 10) {
-      setCounter(counter + 1)
-    }
-  }
-
-  const decrement = () => {
-    if (counter > 0) {
-      setCounter(counter - 1)
-    }
-  }
-
-  const reset = () => {
-    setCounter(0)
-  }
-
+const ItemCount = ( { handleSumar, handleRestar, count, addToCart } ) => {
+  
   return (
-    <ButtonGroup size='md' isAttached variant='outline'>
-      <IconButton onClick={decrement} icon={<MinusIcon />} />
-      <Button>{counter}</Button>
-      <IconButton onClick={increment} icon={<AddIcon />} />
-    </ButtonGroup>
+    <>
+      <div className='centrar-itemCount'>
+        <ButtonGroup aria-label="Basic example">
+          <Button variant="secondary" onClick={handleSumar}>+</Button>
+          <Button variant="secondary" onClick={handleRestar}>-</Button>
+          <Button variant="secondary" onClick={addToCart}>
+            Agregar <Badge bg="info">{count}</Badge>
+          </Button>
+        </ButtonGroup>
+      </div>
+
+    </>
   )
 }
 
